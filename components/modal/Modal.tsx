@@ -4,6 +4,7 @@ import ModalStyle from "./style";
 
 export interface ModalProps {
   isOpen: boolean;
+  title?: string;
   children?: ReactNode;
   handleClose: () => void;
 }
@@ -11,10 +12,11 @@ export interface ModalProps {
 // isOpen || isAnimated -> show
 export const Modal = ({
   isOpen,
+  title,
   children,
   handleClose
 }: ModalProps) => {
-  const [isAnimated, setIsAnimated] = useState(false);
+  const [isAnimated, setIsAnimated] = useState<boolean>(false);
 
   useEffect(() => {
     if(isOpen || isAnimated) {
@@ -40,6 +42,7 @@ export const Modal = ({
     <Portal rootId={defaultModalRootId}>
       <ModalStyle.Background role="modal" isAnimated={isAnimated} isOpen={isOpen}>
         <ModalStyle.Container>
+          {title ? <ModalStyle.Title>{title}</ModalStyle.Title> : null}
           {children}
           <button onClick={handleClose}>
             close

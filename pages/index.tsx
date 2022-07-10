@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import Seo from '../components/Seo';
+import Button from '../components/Button';
 import {Modal} from '../components/modal/Modal';
 
 const Home: NextPage = () => {
@@ -10,10 +11,10 @@ const Home: NextPage = () => {
     <Seo />
     <div>
       INIT
-      <button onClick={() => setIsOpen(prev => !prev)}>
+      <Button size={'normal'} onClick={() => setIsOpen(prev => !prev)}>
         open modal
-      </button>
-      <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)}>
+      </Button>
+      <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)} title={'title'}>
         modal body test
       </Modal>
     </div>

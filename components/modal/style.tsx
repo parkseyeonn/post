@@ -71,7 +71,6 @@ const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
 const Container = styled.div`
   position: relative;
   width: 1000px;
-  height: 1000px;
   padding: 30px;
   background-color: white;
   border-radius: 10px;
@@ -82,7 +81,13 @@ const Container = styled.div`
   animation-name: ${slideUp};
 `;
 
+const Title = styled.h3`
+  margin-bottom: 20px;
+  font-size: ${props => props.theme.modalTitleFontSize}
+`;
+
 Modal.Background = Background;
 Modal.Container = Container;
+Modal.Title = Title;
 
 export default Modal;

@@ -1,24 +1,37 @@
 import styled, {css} from "styled-components";
 
-// border button
-// theme button
-// border mini button
-// theme mini button
-
 type ButtonType = {
   width?: number;
-  size?: 'normal' | 'mini';
+  size?: 'normal' | 'mini' | 'big';
   border?: boolean;
   color?: 'string';
   textColor?: 'string';
 }
 
+const HEIGHT = {
+  normal: 30,
+  mini: 20,
+  big: 50,
+};
+
+const FONT_SIZE = {
+  normal: 14,
+  mini: 12,
+  big: 18,
+};
+
 const Button = styled.button<ButtonType>`
-  width: ${props => props.width ? `${props.width}px` : 'auto'};
-  height: ${props => props.size ? props.theme.button[props.size]: null};
-  line-height: ${props => props.size ? props.theme.button[props.size]: null};
+  width: ${props => props.width ? props.width : 'auto'};
   padding: 0 10px;
   border-radius: 10px;
+  transition: .2s;
+  ${
+    props => props.size ? css`
+      height: ${HEIGHT[props.size]}px;
+      line-height: ${HEIGHT[props.size]}px;
+      font-size: ${FONT_SIZE[props.size]}px;
+    ` : null
+  }
   ${
     props => props.border ? css`
       border-color: ${props.color ?? props.theme.borderColor};
@@ -30,6 +43,9 @@ const Button = styled.button<ButtonType>`
       background-color ${props.color ?? props.theme.themeColor1};
       color: ${props.textColor ?? props.theme.white};
     `
+  }
+  &:hover {
+    opacity: .8;
   }
 `;
 

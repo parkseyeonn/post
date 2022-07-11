@@ -5,8 +5,8 @@ type LayoutProps = {
   children: ReactNode;
 }
 
-const LayoutStyle = styled.main`
-  max-width: 1000px; 
+const LayoutStyle = styled.div`
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
 `;

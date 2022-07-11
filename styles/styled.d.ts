@@ -10,7 +10,11 @@ declare module "styled-components" {
         bgColor: string;
         accentColor: string;
         borderColor: string;
+        boxShadow: string;
         white: string;
+
+        modalZIndex: number;
+        headerZIndex: number;
 
         defaultFontSize: string;
         titleFontSize: string;
@@ -19,10 +23,5 @@ declare module "styled-components" {
         modalTitleFontSize: string;
 
         containerWidth: string;
-
-        button: {
-            mini: string;
-            normal: string;
-        }
     }
 }

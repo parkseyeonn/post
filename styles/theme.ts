@@ -1,6 +1,9 @@
 import {DefaultTheme} from "styled-components";
 
 const commonStyle = {
+    modalZIndex: 1000,
+    headerZIndex: 100,
+
     white: '#f0f0f0',
 
     defaultFontSize: '14px',
@@ -8,13 +11,9 @@ const commonStyle = {
     subTitleFontSize: '18px',
 
     modalTitleFontSize: '18px',
+    boxShadow: '0 1px 2px 0 rgb(0 0 0 / 15%)',
 
     containerWidth: '1000px',
-
-    button: {
-        mini: '20px',
-        normal: '30px',
-    }
 };
 
 export const lightTheme: DefaultTheme = {
@@ -25,6 +24,6 @@ export const lightTheme: DefaultTheme = {
     textColor: 'black',
     bgColor: '#F9F9F9',
     accentColor: '#AA14F0',
-    borderColor: '#433776',
+    borderColor: 'rgba(0, 0, 0, 0.2)',
     ...commonStyle,
 };

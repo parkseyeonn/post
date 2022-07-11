@@ -19,7 +19,8 @@ export const Modal = ({
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
 
   useEffect(() => {
-    if(isOpen || isAnimated) {
+    console.log(isOpen)
+    if(isOpen) {
       let timeout: NodeJS.Timeout;
       if (isOpen) {
         setIsAnimated(isOpen);
@@ -40,15 +41,19 @@ export const Modal = ({
 
   return (
     <Portal rootId={defaultModalRootId}>
+    <ModalStyle>
       <ModalStyle.Background role="modal" isAnimated={isAnimated} isOpen={isOpen}>
-        <ModalStyle.Container>
+        <ModalStyle.Container isOpen={isOpen}>
+          <ModalStyle.Header>
+            <ModalStyle.CloseButton aria-label="close" onClick={handleClose}>x</ModalStyle.CloseButton>
+          </ModalStyle.Header>
           {title ? <ModalStyle.Title>{title}</ModalStyle.Title> : null}
+          <ModalStyle.Body>
           {children}
-          <button onClick={handleClose}>
-            close
-          </button>
+          </ModalStyle.Body>
         </ModalStyle.Container>
       </ModalStyle.Background>
+    </ModalStyle>
     </Portal>
   );
 }

@@ -36,13 +36,22 @@ const slideUp = keyframes`
   }
 `;
 
+const slideDown = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+`;
+
 const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 1000;
+  z-index: ${props => props.theme.modalZIndex};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,17 +77,23 @@ const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.div<{isOpen: boolean}>`
   position: relative;
   width: 1000px;
   padding: 30px;
   background-color: white;
   border-radius: 10px;
+  box-shadow: ${props => props.theme.shadow};
   transform: translateY(10px);
   animation-duration: .2s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
   animation-name: ${slideUp};
+  ${
+    props => props.isOpen ? null : css`
+      animation-name: ${slideDown};
+    `
+  }
 `;
 
 const Title = styled.h3`
@@ -86,8 +101,31 @@ const Title = styled.h3`
   font-size: ${props => props.theme.modalTitleFontSize}
 `;
 
+const Header = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
+
+const CloseButton = styled.button`
+  margin-left: auto;
+  padding: 5px;
+  transition: .2s;
+  font-size: 30px;
+  border: 0;
+  &:hover {
+    opacity: .8;
+  }
+`;
+
+const Body = styled.div`
+  padding: 0 10px;
+`;
+
 Modal.Background = Background;
 Modal.Container = Container;
 Modal.Title = Title;
+Modal.Header = Header;
+Modal.CloseButton = CloseButton;
+Modal.Body = Body;
 
 export default Modal;

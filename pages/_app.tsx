@@ -12,7 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Layout>
         <Header />
         <NavBar />
-        <Component {...pageProps} />
+        <main>
+          <Component {...pageProps} />
+        </main>
       </Layout>
   </ThemeProvider>
   )

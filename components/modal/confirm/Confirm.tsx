@@ -1,16 +1,12 @@
-import { ReactNode, useState, useEffect } from "react";
-import { Portal, defaultModalRootId } from "../Portal";
+import { useState, useEffect } from "react";
 import { Options } from "./index";
 
-//https://dahna.tistory.com/4?category=1014742
-//https://github.com/serrexlabs/react-confirm-box
 export interface ModalProps {
   message: string;
   resolver: (response: boolean) => void;
   options?: Options;
 }
 
-// isOpen || isAnimated -> show
 export const Confirm = ({
   message,
   resolver,

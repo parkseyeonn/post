@@ -1,9 +1,9 @@
-import React from "react";
-import {createRoot} from "react-dom/client"; //todo what is this?
+import React, {createElement} from "react";
+import ReactDOM from "react-dom";
+import {createRoot} from "react-dom/client";
 import {Confirm} from "./Confirm";
-import {Portal, confirmModalRootId, createRootContainer} from "../Portal";  //todo what is this?
+import {Portal, confirmModalRootId, createRootContainer} from "../Portal";
 
-//todo 필요없는 option 지우기
 type ClassNames = {
     container?: string;
     buttons?: string;
@@ -12,50 +12,43 @@ type ClassNames = {
 };
 
 export type Options = {
-    labels?: {
-        confirmable: string;
-        cancellable: string;
-    }
-    classNames?: ClassNames,
+    classNames?: ClassNames;
     closeOnOverlayClick?: boolean;
     render?: (
        message: string,
        onConfirm: () => void,
        onCancel: () => void,
-    ) => Element, //todo what is this?
-    children?: React.ReactNode,
+    ) => Element;
+    children?: React.ReactNode;
 };
 
 export const confirm = async (
     message: string,
     options?: Options
-): Promise<boolean> => {  //todo what is this?
-    let element = document.getElementById(confirmModalRootId);
-    if (!element) {
-        element = createRootContainer(confirmModalRootId);
-    }
+): Promise<boolean> => {
 
-    if (element) {
-        const root = createRoot(element);  //todo what is this?
-        return new Promise((resolve) => {
-            const confirmModal = React.createElement(Confirm, {
-                resolver: response => {
-                    resolve(response);
-                    root.unmount();
-                },
-                message,
-                options,
-            })  //todo what is this?
-            // 포탈에 컨펌모달을 합성
-            const PortalEl = React.createElement(
-                Portal,
-                { rootId: confirmModalRootId, children: confirmModal },
-                confirmModal,
-            )
+    return new Promise((resolve) => {
+       const confirmModal = createElement(Confirm, {
+           resolver: response => {
+               resolve(response);
+               root.unmount();
+           },
+           message,
+           options,
+       });
+       let element = document.getElementById(confirmModalRootId);
+       if (!element) {
+           const PortalEl = createElement(
+               Portal,
+               { rootId: confirmModalRootId },
+               confirmModal,
+           );
+           console.log(PortalEl)
+           ReactDOM.render(PortalEl, document.body);
 
-            root.render(PortalEl)
-        })
-    }
-
-    return new Promise(() => {})
+           document.body.appendChild(PortalEl);
+       } else {
+         element = createRootContainer(confirmModalRootId);
+       }
+   })
 };

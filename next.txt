@@ -1,0 +1,41 @@
+next js는 빠른 웹어플리케이션을 생성하기 위한 유연한 리액트 프레임워크이다.
+
+# what needs to building modern applications
+- user interface
+- routing
+- data fetching
+- rendering
+- integrations with third-party services
+- infrastructure (how to deploy, store and run application)
+- performance
+- scalability
+- developer experience
+
+react를 ui를 만들기 위해 쓰면서, 점진적으로 nextjs를 필요에 따라 가져다 쓸 수 있다. (routing, data fetching...)
+
+# getServerSideProps
+pre-rendering using the data returned by getServerSideProps
+
+[request this page directly]
+1. getServerSideProps runs at request time
+2. this page will be pre-rendered with the returned props
+[request this page on client-side page transition through 'next/link' or 'next/router']
+1. nestJS sends an API request to the server which runs getServerSideProps
+
+# styling
+1. styled-jsx: CSS-in-JS library, built-in support,
+
+#next/link
+https://nextjs.org/docs/api-reference/next/link
+-> why a tag needs to be nested in Link? 
+
+#next/image
+src: 
+
+
+1. styled-component
+2. recoil -> ?
+3. page setting
+4. mypage Layout card / 그룹만들기 / 그룹찾기
+5. folder inside 
+6. mypage의 seo는 어떻게 구성할지/..///////..////

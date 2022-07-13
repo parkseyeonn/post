@@ -2,10 +2,11 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 import Seo from '../components/Seo';
 import Button from '../components/Button';
-import {Modal} from '../components/modal/Modal';
-import { confirm } from '../components/modal/confirm';
+import { Modal } from '../components/modal/Modal';
+import useConfirm from '../hooks/useConfirm';
 
 const Home: NextPage = () => {
+  const { show } = useConfirm();
   const [isOpen, setIsOpen] = useState(false);
   const [feed, setFeed] = useState([{
     id: 1,
@@ -17,12 +18,11 @@ const Home: NextPage = () => {
     },
   }]);
 
-  const onConfirmClick = async (options) => {
-    const result = await confirm("Are you sure?", options);
-    console.log(result);
-    if (result) {
-      return console.log("You click yes!");
-    }
+  const onConfirmClick = async () => {
+    show({
+        message: 'hi',
+        onCancel: () => {},
+    });
   };
 
   return (
@@ -42,10 +42,10 @@ const Home: NextPage = () => {
       <Button size={'normal'} onClick={() => setIsOpen(prev => !prev)}>
         open modal
       </Button>
-      <Button size={'normal'} onClick={onConfirmClick}>
+      <Button size={'normal'} onClick={() => onConfirmClick()}>
         test confirm
       </Button>
-      <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)} title={'title'}>
+      <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)} title={'title'} size={1000}>
         modal body test
       </Modal>
     </div>

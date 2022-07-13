@@ -7,6 +7,7 @@ export interface ModalProps {
   title?: string;
   children?: ReactNode;
   handleClose: () => void;
+  size?: number;
 }
 
 // isOpen || isAnimated -> show
@@ -14,13 +15,14 @@ export const Modal = ({
   isOpen,
   title,
   children,
-  handleClose
+  handleClose,
+  size,
 }: ModalProps) => {
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
 
   useEffect(() => {
     console.log(isOpen)
-    if(isOpen) {
+    if (isOpen) {
       let timeout: NodeJS.Timeout;
       if (isOpen) {
         setIsAnimated(isOpen);
@@ -43,7 +45,7 @@ export const Modal = ({
     <Portal rootId={defaultModalRootId}>
     <ModalStyle>
       <ModalStyle.Background role="modal" isAnimated={isAnimated} isOpen={isOpen}>
-        <ModalStyle.Container isOpen={isOpen}>
+        <ModalStyle.Container isOpen={isOpen} size={size ? size : null}>
           <ModalStyle.Header>
             <ModalStyle.CloseButton aria-label="close" onClick={handleClose}>x</ModalStyle.CloseButton>
           </ModalStyle.Header>

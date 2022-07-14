@@ -1,6 +1,10 @@
+import {InputHTMLAttributes} from 'react';
 import styled, {css} from "styled-components";
 
-const Input = styled.input`
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+}
+
+const StyledInput = styled.input`
     width: 100%;
     height: 50px;
     padding: 0 10px;
@@ -10,6 +14,14 @@ const Input = styled.input`
     & + input {
       margin-top: 10px;
     }
+    &:focus {
+        outline: none;
+        border-Color: ${props => props.theme.themeColor1}
+    }
 `;
 
-export default Input;
+export default function Input({...props}: Props) {
+    return (
+        <StyledInput {...props} />
+    )
+};

@@ -11,6 +11,7 @@ declare module "styled-components" {
         accentColor: string;
         borderColor: string;
         boxShadow: string;
+        hoverBoxShadow: string;
         white: string;
 
         modalZIndex: number;

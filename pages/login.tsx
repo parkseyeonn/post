@@ -27,7 +27,7 @@ const LoginButton = styled(Button)`
   margin-top: 24px;
 `;
 
-const Login: nextPage = () => {
+const Login: NextPage = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 

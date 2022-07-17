@@ -25,10 +25,7 @@ export default function NavBar(){
       <Link href={'/'} passHref>
         <StyledLink isCurrentPage={pathname === '/'}>home</StyledLink>
       </Link>
-      <Link href={'/'} passHref>
-        <StyledLink isCurrentPage={pathname === '/feed'}>feed</StyledLink>
-      </Link>
-      <Link href={'/'} passHref>
+      <Link href={'/group'} passHref>
         <StyledLink isCurrentPage={pathname === '/group'}>group</StyledLink>
       </Link>
       <Link href={'/mypage'} passHref>

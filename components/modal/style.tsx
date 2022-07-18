@@ -97,12 +97,12 @@ const Container = styled.div<{isOpen: boolean , size: number | null}>`
 `;
 
 const Title = styled.h3`
-  margin-bottom: 20px;
   font-size: ${props => props.theme.modalTitleFontSize}
 `;
 
 const Header = styled.div`
   display: flex;
+  align-items: center;
   margin-bottom: 10px;
 `;
 

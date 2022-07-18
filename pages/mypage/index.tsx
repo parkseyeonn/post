@@ -1,8 +1,7 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import Seo from '../../components/Seo';
-import ListItem from '../../components/ListItem';
-import {ListWrap} from '../../styles/pages/mypage';
+import {ListItem} from '../../../components/common';
 
 const menu = [
     {name: '그룹 생성', link: '/mypage/group/create'},
@@ -16,15 +15,15 @@ const MyPage: NextPage = () => {
     <Seo />
     <div>
 {/* todo user profile*/}
-      <ListWrap>
+      <ul>
       {menu?.map((item, index) => (
-        <ListItem>
+        <ListItem key={index}>
           <Link href={item.link}>
             <a>{item.name}</a>
           </Link>
         </ListItem>
       ))}
-      </ListWrap>
+      </ul>
     </div>
     </>
   )

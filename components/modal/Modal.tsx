@@ -47,9 +47,9 @@ export const Modal = ({
       <ModalStyle.Background role="modal" isAnimated={isAnimated} isOpen={isOpen}>
         <ModalStyle.Container isOpen={isOpen} size={size ? size : null}>
           <ModalStyle.Header>
+            {title ? <ModalStyle.Title>{title}</ModalStyle.Title> : null}
             <ModalStyle.CloseButton aria-label="close" onClick={handleClose}>x</ModalStyle.CloseButton>
           </ModalStyle.Header>
-          {title ? <ModalStyle.Title>{title}</ModalStyle.Title> : null}
           <ModalStyle.Body>
           {children}
           </ModalStyle.Body>

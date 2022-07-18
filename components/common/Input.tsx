@@ -2,15 +2,17 @@ import {InputHTMLAttributes} from 'react';
 import styled, {css} from "styled-components";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  prepend?: ReactNode;
+  append?: ReactNode;
+  type?: 'small';
 }
 
 const StyledInput = styled.input`
     width: 100%;
-    height: 50px;
+    height: 40px;
     padding: 0 10px;
     border: 1px solid ${props => props.theme.borderColor};
     border-radius: 4px;
-    box-shadow: ${props => props.theme.boxShadow};
     & + input {
       margin-top: 10px;
     }
@@ -20,8 +22,12 @@ const StyledInput = styled.input`
     }
 `;
 
-export default function Input({...props}: Props) {
+export default function Input({prepend, append, ...props}: Props) {
     return (
-        <StyledInput {...props} />
+    <>
+      {prepend}
+      <StyledInput {...props} />
+      {append}
+    </>
     )
 };

@@ -1,12 +1,11 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import Seo from '../components/Seo';
-import Button from '../components/Button';
-import ListItem from '../components/ListItem';
+import Feed from '../components/post/Feed';
+import FeedList from '../components/post/FeedList';
+import { Button, Title } from '../../../components/common';
 import { Modal } from '../components/modal/Modal';
-import { ListWrap, Category, Title, Contents } from '../components/domains/feed';
 import useConfirm from '../hooks/useConfirm';
-import { SectionTitle, Group } from '../styles/pages/index';
 
 const Home: NextPage = () => {
   const { show } = useConfirm();
@@ -79,18 +78,16 @@ const Home: NextPage = () => {
 {/*           </Group> */}
 {/*         ))} */}
 {/*       </ul> */}
-      <SectionTitle>다른 모임들이 어떻게 활동하는지 구경해보세요!</SectionTitle>
-      <ListWrap>
+      <Title type='t1'>다른 모임들이 어떻게 활동하는지 구경해보세요!</Title>
+      <FeedList>
         {feed.map((item) => (
-          <ListItem key={item.id}>
-            <div>
-              <Category>{item.group.category}</Category>
-              <Title>{item.title}</Title>
-            </div>
-            <Contents>{item.contents}</Contents>
-          </ListItem>
+          <Feed key={item.id}
+           category={item.group.category}
+           title={item.title}
+           contents={item.contents}
+           />
         ))}
-      </ListWrap>
+      </FeedList>
       <Button size={'normal'} onClick={() => setIsOpen(prev => !prev)}>
         open modal
       </Button>

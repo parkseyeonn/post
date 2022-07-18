@@ -2,9 +2,9 @@ import type { NextPage } from 'next';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Seo from '../components/Seo';
-import Button from '../components/Button';
-import Input from '../components/Input';
-import {Modal} from '../components/modal/Modal';
+import Button from '../components/common/Button';
+import Input from '../components/common/Input';
+import { Modal } from '../components/modal/Modal';
 
 const LoginWrap = styled.div`
   z-index: 50;

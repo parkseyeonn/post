@@ -1,9 +1,7 @@
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from "recoil";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import Header from '../components/Header';
-import Layout from '../components/Layout';
-import NavBar from '../components/NavBar';
+import Layout from '../components/layout';
 import ConfirmModal from '../components/modal/Confirm';
 import { lightTheme } from '../styles/theme';
 
@@ -58,8 +56,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <ConfirmModal />
       <Layout>
-        <Header />
-        <NavBar />
         <Main>
           <Component {...pageProps} />
         </Main>

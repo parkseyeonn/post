@@ -1,0 +1,19 @@
+import {UlHTMLEAttributes} from 'react';
+import styled from 'styled-components';
+
+interface Props extends UlHTMLEAttributes<HTMLUlElement> {
+}
+
+export const StyledFeedList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+`;
+
+export default function FeedList({children, props}: Props) {
+  return (
+    <StyledFeedList {...props}>
+    {children}
+    </StyledFeedList>
+  )
+}

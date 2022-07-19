@@ -26,7 +26,7 @@ const Category = styled.li<{isActive: boolean}>`
   }
 `;
 
-export default function CategorySelector() {
+export function CategorySelector() {
   return (
     <CategoryList>
     {

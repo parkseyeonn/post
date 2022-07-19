@@ -50,7 +50,7 @@ const StyledButton = styled.button<Props>`
   }
 `;
 
-export default function Button({children, ...props}: Props) {
+export function Button({children, ...props}: Props) {
     return (
         <StyledButton {...props}>
         {children}

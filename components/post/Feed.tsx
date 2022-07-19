@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ListItem from '../common/ListItem';
+import {ListItem} from '../common';
 
 interface Props {
   category: string;
@@ -21,7 +21,7 @@ export const Contents = styled.div`
   margin-top: 10px;
 `;
 
-export default function Feed({title, category, contents}: Props) {
+export function Feed({title, category, contents}: Props) {
   return (
     <ListItem>
       <div>

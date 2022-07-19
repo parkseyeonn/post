@@ -1,9 +1,8 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import Seo from '../components/Seo';
-import Feed from '../components/post/Feed';
-import FeedList from '../components/post/FeedList';
-import { Button, Title } from '../../../components/common';
+import { Feed, FeedList } from '../components/post';
+import { Button, Title } from '../components/common';
 import { Modal } from '../components/modal/Modal';
 import useConfirm from '../hooks/useConfirm';
 
@@ -69,7 +68,7 @@ const Home: NextPage = () => {
     <>
     <Seo />
     <div>
-{/*       <SectionTitle>나에게 꼭맞는 모임을 찾아보세요!</SectionTitle> */}
+{/*       <Title type='t1'>나에게 꼭맞는 모임을 찾아보세요!</Title> */}
 {/*       <p>{randomCategory}</p> */}
 {/*       <ul> */}
 {/*         {groups.map((group) => ( */}

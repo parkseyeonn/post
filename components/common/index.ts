@@ -1,13 +1,5 @@
-import Button from './Button';
-import CategorySelector from './CategorySelector';
-import Input from './Input';
-import ListItem from './ListItem';
-import Title from './Title';
-
-export {
-  Button,
-  CategorySelector,
-  Input,
-  ListItem,
-  Title,  
-}
+export * from './Button';
+export * from './CategorySelector';
+export * from './Input';
+export * from './ListItem';
+export * from './Title';

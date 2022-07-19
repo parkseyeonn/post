@@ -21,7 +21,7 @@ const StyledTitle = styled.div<Props>`
   }
 `;
 
-export default function Title({children, ...props}: Props) {
+export function Title({children, ...props}: Props) {
   return (
     <StyledTitle {...props}>
     {children}

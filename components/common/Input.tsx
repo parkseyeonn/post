@@ -22,7 +22,7 @@ const StyledInput = styled.input`
     }
 `;
 
-export default function Input({prepend, append, ...props}: Props) {
+export function Input({prepend, append, ...props}: Props) {
     return (
     <>
       {prepend}

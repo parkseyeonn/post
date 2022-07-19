@@ -15,7 +15,7 @@ const StyledLi = styled.li`
   }
 `;
 
-export default function ListItem({children, ...props}: Props) {
+export function ListItem({children, ...props}: Props) {
     return(
         <StyledLi {...props}>
         {children}

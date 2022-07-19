@@ -10,7 +10,7 @@ export const StyledFeedList = styled.ul`
   gap: 10px;
 `;
 
-export default function FeedList({children, props}: Props) {
+export function FeedList({children, props}: Props) {
   return (
     <StyledFeedList {...props}>
     {children}

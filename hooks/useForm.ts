@@ -1,20 +1,24 @@
 import React, {useState, useEffect, useCallback} from 'react';
 
-interface Props<T> {
-    initialValues: T,
-    validate: (arg: T) => {};
-    onSubmit: (arg: T) => void;
+interface Props {
+    initialValues: TValue,
+    validate: (arg: TValue) => TError;
+    onSubmit: (arg: TValue) => void;
+}
+
+type TValue = {
+    [key: string]: any;
+}
+
+type TError = {
+    [key: string]: string;
 }
 
 type TTouched = {
     [key: string]: boolean;
 }
 
-interface IValue {
-    [key: string]: string;
-}
-
-export default function useForm<T>({initialValues, validate, onSubmit}: Props<T>) {
+export default function useForm({initialValues, validate, onSubmit}: Props) {
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
@@ -59,15 +63,14 @@ export default function useForm<T>({initialValues, validate, onSubmit}: Props<T>
         setErrors(errors);
     }, [runValidator]);
 
-    // const getFieldProps = (name: string) => ({
-    //     name,
-    //     value: getKeyValue<keyof IValue, IValue>(name)(values),
-    //     onBlur: handleBlur,
-    //     onChange: handleChange,
-    // });
-    //
-    // // best
-    // const getKeyValue = <T extends object, U extends keyof T>(key: U) => (obj: T) => obj[key];
+    const getFieldProps = (name: string) => ({
+        name,
+        value: getKeyValue(values, name),
+        onBlur: handleBlur,
+        onChange: handleChange,
+    });
+
+    const getKeyValue = <T, U extends keyof T>(obj: T, key: U) => obj[key];
 
     return {
         values,
@@ -76,5 +79,6 @@ export default function useForm<T>({initialValues, validate, onSubmit}: Props<T>
         handleChange,
         handleBlur,
         handleSubmit,
+        getFieldProps,
     }
 }

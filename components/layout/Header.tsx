@@ -7,10 +7,11 @@ const HeaderTag = styled.header`
   z-index: ${props => props.theme.headerZIndex};
   display: flex;
   align-items: center;
-  height: 70px;
+  height: 100px;
 `;
 
 const LogoH1 = styled.a`
+  font-family: 'Press Start 2P', cursive;
   font-size: 30px;
   &:hover {
    text-decoration: none;
@@ -31,7 +32,7 @@ export default function Header() {
         </Link>
       </h1>
       <Link href={'/login'} passHref>
-        <HeaderLink>Login</HeaderLink>
+        <HeaderLink>로그인</HeaderLink>
       </Link>
     </HeaderTag>
   )

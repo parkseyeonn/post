@@ -8,6 +8,7 @@ declare module "styled-components" {
         lightThemeColor1: string;
         textColor: string;
         bgColor: string;
+        warningColor: string;
         accentColor: string;
         borderColor: string;
         boxShadow: string;

@@ -22,7 +22,13 @@ const StyledInput = styled.input`
     }
 `;
 
-export function Input({prepend, append, ...props}: Props) {
+const Error = styled.div`
+  margin: 5px 0 10px;
+  color: ${props => props.theme.warningColor};
+  font-size: 12px;
+`;
+
+const Input = ({prepend, append, ...props}: Props) => {
     return (
     <>
       {prepend}
@@ -31,3 +37,7 @@ export function Input({prepend, append, ...props}: Props) {
     </>
     )
 };
+
+Input.Error = Error;
+
+export {Input};

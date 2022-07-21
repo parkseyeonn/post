@@ -29,7 +29,7 @@ const LoginButton = styled(Button)`
 interface FormType {[key: string]: string}
 
 const Login: NextPage = () => {
-  const {values, errors, touched, handleChange, handleBlur, handleSubmit} = useForm({
+  const {values, errors, touched, handleSubmit, getFieldProps} = useForm({
     initialValues: {id: '', password: ''},
     validate: values => {
       const errors = {
@@ -41,7 +41,7 @@ const Login: NextPage = () => {
         errors.id = '아이디를 입력해주세요.'
       }
       if (!values.password) {
-        errors.id = '비밀번호를 입력해주세요.'
+        errors.password = '비밀번호를 입력해주세요.'
       }
       return errors;
     },
@@ -56,20 +56,17 @@ const Login: NextPage = () => {
       <form onSubmit={handleSubmit}>
         <LoginInputWrap>
           <Input
+            {...getFieldProps("id")}
             type="text"
-            name="id"
             placeholder="아이디"
-            value={values.id}
-            onChange={handleChange}
           />
-          {touched.id && errors.id && <span>{errors.id}</span>}
+          {touched.id && errors.id && <Input.Error>{errors.id}</Input.Error>}
           <Input
+            {...getFieldProps("password")}
             type="password"
-            name="password"
             placeholder="비밀번호"
-            value={values.password}
-            onChange={handleChange}
             />
+          {touched.password && errors.password && <Input.Error>{errors.password}</Input.Error>}
           <LoginButton type="submit" width="100%" size="big">
           로그인
           </LoginButton>

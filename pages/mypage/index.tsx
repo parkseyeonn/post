@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import Seo from '../../components/Seo';
-import {ListItem} from '../../../components/common';
+import { ListItem } from '../../components/common';
 
 const menu = [
     {name: '그룹 생성', link: '/mypage/group/create'},

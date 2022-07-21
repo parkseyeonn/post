@@ -16,6 +16,18 @@ body {
   font-size: 18px;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background: #fafafa;
+  & > div {
+    height: 100%;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

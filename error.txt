@@ -1,0 +1,11 @@
+1. TS7053: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{}'.
+에러의 발생 원인은 object의 key가 string인데 이를 ts 에서 허용하지 않기 때문
+https://soopdop.github.io/2020/12/01/index-signatures-in-typescript/
+
+->reduce 에서 object key를 사용하기위해 type을 지정하기
+https://bobbyhadz.com/blog/typescript-reduce-type
+
+->https://stackoverflow.com/questions/57086672/element-implicitly-has-an-any-type-because-expression-of-type-string-cant-b
+
+2. hook 에서 generic 사용하기
+https://dev.to/flopes89/generic-react-hook-for-async-functions-5361

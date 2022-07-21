@@ -22,6 +22,7 @@ export const lightTheme: DefaultTheme = {
     themeColor2: '#FF0063',
     themeColor3: '#C4D7E0',
     lightThemeColor1: '#EAF6F6',
+    warningColor: '#7b041f',
     textColor: 'black',
     bgColor: '#F9F9F9',
     accentColor: '#AA14F0',

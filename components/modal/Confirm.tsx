@@ -14,7 +14,6 @@ export interface ModalProps {
 }
 
 const Confirm = () => {
-
   const {hide} = useConfirm();
   const state = useRecoilState(confirmState)[0];
   const [isOpen, setIsOpen] = useState(state ? true : false);
@@ -49,18 +48,18 @@ const Confirm = () => {
         <ModalStyle.Background role="confirm-modal" isAnimated={isAnimated} isOpen={isOpen}>
           <ModalStyle.Container isOpen={isOpen} size={300}>
             <h3>{state.message}</h3>
-            <div>
+            <ModalStyle.ButtonWrap>
               {state.cancelText ?
-                <button type="button" onClick={handleCancel}>
+                <ModalStyle.SuccessButton type="button" onClick={handleCancel}>
                   {state.cancelText}
-                </button>
+                </ModalStyle.SuccessButton>
                 : null}
               {state.successText ?
-                <button type="button" onClick={handleSuccess}>
+                <ModalStyle.SuccessButton type="button" onClick={handleSuccess}>
                   {state.successText}
-                </button>
+                </ModalStyle.SuccessButton>
                 : null}
-            </div>
+            </ModalStyle.ButtonWrap>
           </ModalStyle.Container>
         </ModalStyle.Background>
       </ModalStyle>

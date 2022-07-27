@@ -5,7 +5,7 @@ import { ModalProps } from '../components/modal/Confirm';
 export default function useConfirm() {
     const [confirm, setConfirm] = useRecoilState(confirmState);
 
-    const show = ({ message, successText, cancelText = '확인', onSuccess, onCancel = hide }: ModalProps) => {
+    const show = ({ message, successText = '확인', cancelText, onSuccess, onCancel = hide }: ModalProps) => {
         setConfirm({
             message,
             successText,

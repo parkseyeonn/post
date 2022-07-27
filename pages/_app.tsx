@@ -53,6 +53,8 @@ button {
 
 ul, ol {
   padding: 0;
+}
+li {
   list-style: none;
 }
 `;

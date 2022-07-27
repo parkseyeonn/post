@@ -117,6 +117,19 @@ const CloseButton = styled.button`
   }
 `;
 
+const ButtonWrap = styled.div`
+  display: flex;
+  & > button {
+    flex: 1;
+  }
+`;
+
+const SuccessButton = styled.button`
+  border: 0;
+  color: ${props => props.theme.themeColor1};
+  font-weight: bold;
+`;
+
 const Body = styled.div`
 `;
 
@@ -126,5 +139,7 @@ Modal.Title = Title;
 Modal.Header = Header;
 Modal.CloseButton = CloseButton;
 Modal.Body = Body;
+Modal.ButtonWrap = ButtonWrap;
+Modal.SuccessButton = SuccessButton;
 
 export default Modal;

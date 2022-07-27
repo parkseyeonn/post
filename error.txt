@@ -9,3 +9,22 @@ https://bobbyhadz.com/blog/typescript-reduce-type
 
 2. hook 에서 generic 사용하기
 https://dev.to/flopes89/generic-react-hook-for-async-functions-5361
+
+3. useClickOutside
+- ref props. ref를 props로 전달할때 error 발생.
+  import {RefObject} from 'react';
+
+  interface Props {
+    ref: RefObject<HTMLDivElement>; -> ref.current 를 사용할수 있음.
+  }
+  https://driip.me/7126d5d5-1937-44a8-98ed-f9065a7c35b5 -> mutableObject와 RefObject의 차이를 설명한 글.
+
+  1) const localVarRef = useRef<number>(0);
+  로컬 변수 용도로 useRef를 사용하는 경우, MutableRefObject<T>를 사용해야 하므로 제네릭 타입과 같은 타입의 초깃값을 넣어주자.
+  2) const inputRef = useRef<HTMLInputElement>(null);
+  DOM을 직접 조작하기 위해 프로퍼티로 useRef 객체를 사용할 경우, RefObject<T>를 사용해야 하므로 초깃값으로 null을 넣어주자.
+
+- event listener type error.
+  처음에는 MouseEvent를 사용했으나 에러 발생. Type '(e: MouseEvent) => void' is not assignable to type 'EventListener'.
+  https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=bunggl&logNo=221981822421
+

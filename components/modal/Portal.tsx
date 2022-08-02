@@ -1,8 +1,8 @@
 import { useLayoutEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-// we’re directly mutating the DOM 
-// and want the effect to run synchronously before the DOM is repainted, 
+// we’re directly mutating the DOM
+// and want the effect to run synchronously before the DOM is repainted,
 // so it makes more sense to use the useLayoutEffect Hook.
 
 type Props = {
@@ -10,12 +10,12 @@ type Props = {
   rootId: string,
 }
 
-export const defaultModalRootId = 'modalRoot';
-export const confirmModalRootId = 'confirmModalRoot';
+export const defaultModalRootId = "modalRoot";
+export const confirmModalRootId = "confirmModalRoot";
 
 export const createRootContainer = (rootId: string) : HTMLElement => {
-  const root = document.createElement('div');
-  root.setAttribute('id', rootId);
+  const root = document.createElement("div");
+  root.setAttribute("id", rootId);
   document.body.appendChild(root);
   return root;
 };

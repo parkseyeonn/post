@@ -1,5 +1,5 @@
-import {DivHTMLAttributes} from 'react';
-import styled from 'styled-components';
+import {DivHTMLAttributes} from "react";
+import styled from "styled-components";
 
 interface Props extends DivHTMLAttributes<HTMLDivElement> {
 }

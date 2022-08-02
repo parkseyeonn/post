@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useRecoilState } from 'recoil';
-import { confirmState } from '../../recoil/confirm';
-import useConfirm from '../../hooks/useConfirm';
+import { useRecoilState } from "recoil";
+import { confirmState } from "../../recoil/confirm";
+import useConfirm from "../../hooks/useConfirm";
 import {Portal, confirmModalRootId} from "./Portal";
 import ModalStyle from "./style";
 

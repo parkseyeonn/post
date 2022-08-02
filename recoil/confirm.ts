@@ -1,7 +1,7 @@
-import {atom} from 'recoil';
-import {ModalProps} from '../components/modal/Confirm';
+import {atom} from "recoil";
+import {ModalProps} from "../components/modal/Confirm";
 
 export const confirmState = atom<ModalProps | null>({
-    key: 'confirmState',
+    key: "confirmState",
     default: null,
 })

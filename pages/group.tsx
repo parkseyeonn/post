@@ -1,8 +1,8 @@
-import type { NextPage } from 'next';
-import { useState } from 'react';
-import Seo from '../components/Seo';
-import { FeedLoader } from '../components/post';
-import { feedData } from '../data';
+import type { NextPage } from "next";
+import { useState } from "react";
+import Seo from "../components/Seo";
+import { FeedLoader } from "../components/post";
+import { feedData } from "../data";
 
 const Group: NextPage = () => {
 

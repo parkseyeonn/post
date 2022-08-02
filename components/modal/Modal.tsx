@@ -1,6 +1,7 @@
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect, useRef } from "react";
 import { Portal, defaultModalRootId } from "./Portal";
 import ModalStyle from "./style";
+import useClickOutside from "../../hooks/useClickOutside";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -18,34 +19,40 @@ export const Modal = ({
   handleClose,
   size,
 }: ModalProps) => {
+  const modalRef = useRef(null);
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
+  useClickOutside({
+    ref: modalRef,
+    callback: handleClose
+  });
 
-  useEffect(() => {
-    console.log(isOpen)
-    if (isOpen) {
-      let timeout: NodeJS.Timeout;
-      if (isOpen) {
-        setIsAnimated(isOpen);
-      } else {
-        timeout = setTimeout(() => {
-          setIsAnimated(isOpen);
-        }, 300);
-      }
-      return () => {
-        if (timeout !== undefined) {
-          clearTimeout(timeout);
-        }
-      }
-    }
-  }, [isOpen]);
+//todo modal useEffect
+//   useEffect(() => {
+//     if (isOpen) {
+//       let timeout: NodeJS.Timeout;
+//       if (isOpen) {
+//         setIsAnimated(true);
+//       } else {
+//         timeout = setTimeout(() => {
+//           console.log(1133333)
+//           setIsAnimated(false);
+//         }, 300);
+//       }
+//       return () => {
+//         if (timeout !== undefined) {
+//           clearTimeout(timeout);
+//         }
+//       }
+//     }
+//   }, [isOpen]);
 
   if (!(isOpen || isAnimated)) return null;
 
   return (
     <Portal rootId={defaultModalRootId}>
     <ModalStyle>
-      <ModalStyle.Background role="modal" isAnimated={isAnimated} isOpen={isOpen}>
-        <ModalStyle.Container isOpen={isOpen} size={size ? size : null}>
+      <ModalStyle.Background isAnimated={isAnimated} isOpen={isOpen}>
+        <ModalStyle.Container ref={modalRef} isOpen={isOpen} size={size ? size : null}>
           <ModalStyle.Header>
             {title ? <ModalStyle.Title>{title}</ModalStyle.Title> : null}
             <ModalStyle.CloseButton aria-label="close" onClick={handleClose}>x</ModalStyle.CloseButton>

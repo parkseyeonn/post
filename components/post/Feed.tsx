@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {ListItem} from '../common';
+import styled from "styled-components";
+import {ListItem} from "../common";
 
 interface Props {
   category: string;

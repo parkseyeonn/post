@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from "react";
 
 interface Props {
     initialValues: TValue,
@@ -64,6 +64,7 @@ export default function useForm({initialValues, validate, onSubmit}: Props) {
     }, [runValidator]);
 
     const getFieldProps = (name: string) => ({
+        id: name,
         name,
         value: getKeyValue(values, name),
         onBlur: handleBlur,

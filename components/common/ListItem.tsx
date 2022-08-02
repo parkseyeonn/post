@@ -1,5 +1,5 @@
-import {LiHTMLAttributes} from 'react';
-import styled from 'styled-components';
+import {LiHTMLAttributes} from "react";
+import styled from "styled-components";
 
 interface Props extends LiHTMLAttributes<HTMLLiElement> {
 }

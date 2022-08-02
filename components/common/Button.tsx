@@ -1,12 +1,12 @@
-import {ButtonHTMLAttributes} from 'react';
+import {ButtonHTMLAttributes} from "react";
 import styled, {css} from "styled-components";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: number;
-  size?: 'normal' | 'mini' | 'big'; // height, font-size
+  size?: "normal" | "mini" | "big"; // height, font-size
   border?: boolean;
-  color?: 'string';
-  textColor?: 'string';
+  color?: "string";
+  textColor?: "string";
 }
 
 const HEIGHT = {
@@ -22,7 +22,7 @@ const FONT_SIZE = {
 };
 
 const StyledButton = styled.button<Props>`
-  width: ${props => props.width ? props.width : 'auto'};
+  width: ${props => props.width ? props.width : "auto"};
   padding: 0 10px;
   border-radius: 10px;
   transition: .2s;

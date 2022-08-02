@@ -1,9 +1,9 @@
-import type { AppProps } from 'next/app';
+import type { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import Layout from '../components/layout';
-import ConfirmModal from '../components/modal/Confirm';
-import { lightTheme } from '../styles/theme';
+import Layout from "../components/layout";
+import ConfirmModal from "../components/modal/Confirm";
+import { lightTheme } from "../styles/theme";
 
 const GlobalStyle = createGlobalStyle`
 html,

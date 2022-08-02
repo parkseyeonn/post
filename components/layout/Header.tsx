@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faUser, faBook } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,7 +13,7 @@ const HeaderTag = styled.header`
 `;
 
 const LogoH1 = styled.a`
-  font-family: 'Cormorant SC', serif;
+  font-family: "Cormorant SC", serif;
   font-size: 40px;
   &:hover {
    text-decoration: none;
@@ -34,7 +34,7 @@ const StyledNavBar = styled.nav`
 
 const StyledLink = styled.a<{isCurrentPage: boolean}>`
   flex: 1;
-  color: ${props => props.isCurrentPage ? props.theme.themeColor1 : 'black'};
+  color: ${props => props.isCurrentPage ? props.theme.themeColor1 : "black"};
   font-size: 24px;
   font-weight: 500;
   text-align: center;
@@ -46,28 +46,28 @@ const StyledLink = styled.a<{isCurrentPage: boolean}>`
 
 export default function Header() {
   const {pathname} = useRouter();
-  const menu = pathname.split('/')[1];
+  const menu = pathname.split("/")[1];
   const user = null;
 
   return (
     <HeaderTag>
       <h1>
-        <Link href={'/'} passHref>
+        <Link href={"/"} passHref>
           <LogoH1>STUDY WITH ME</LogoH1>
         </Link>
       </h1>
       <StyledNavBar>
-        <Link href={'/'} passHref>
-          <StyledLink isCurrentPage={pathname === '/'}><FontAwesomeIcon icon={faHouse} /></StyledLink>
+        <Link href={"/"} passHref>
+          <StyledLink isCurrentPage={pathname === "/"}><FontAwesomeIcon icon={faHouse} /></StyledLink>
         </Link>
-        <Link href={'/group'} passHref>
-          <StyledLink isCurrentPage={menu === 'group'}><FontAwesomeIcon icon={faBook} /></StyledLink>
+        <Link href={"/group"} passHref>
+          <StyledLink isCurrentPage={menu === "group"}><FontAwesomeIcon icon={faBook} /></StyledLink>
         </Link>
-        <Link href={user ? '/mypage': '/login'} passHref>
-          <StyledLink isCurrentPage={menu === (user ? 'mypage' : 'login')}><FontAwesomeIcon icon={faUser} /></StyledLink>
+        <Link href={user ? "/mypage": "/login"} passHref>
+          <StyledLink isCurrentPage={menu === (user ? "mypage" : "login")}><FontAwesomeIcon icon={faUser} /></StyledLink>
         </Link>
       </StyledNavBar>
-{/*       <Link href={'/login'} passHref> */}
+{/*       <Link href={"/login"} passHref> */}
 {/*         <HeaderLink>로그인</HeaderLink> */}
 {/*       </Link> */}
     </HeaderTag>

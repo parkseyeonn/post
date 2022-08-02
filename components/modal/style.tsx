@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, forwardRef } from "react";
 import styled, {css, keyframes} from "styled-components";
 
 type LayoutProps = {

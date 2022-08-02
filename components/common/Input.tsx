@@ -1,10 +1,10 @@
-import {InputHTMLAttributes} from 'react';
+import {InputHTMLAttributes} from "react";
 import styled, {css} from "styled-components";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   prepend?: ReactNode;
   append?: ReactNode;
-  type?: 'small';
+  type?: "small";
 }
 
 const StyledInput = styled.input`
@@ -20,6 +20,12 @@ const StyledInput = styled.input`
         outline: none;
         border-Color: ${props => props.theme.themeColor1}
     }
+`;
+
+const Label = styled.label`
+  margin: 5px 0;
+  padding: 0 5px;
+  font-size: 14px;
 `;
 
 const Error = styled.div`
@@ -38,6 +44,7 @@ const Input = ({prepend, append, ...props}: Props) => {
     )
 };
 
+Input.Label = Label;
 Input.Error = Error;
 
 export {Input};

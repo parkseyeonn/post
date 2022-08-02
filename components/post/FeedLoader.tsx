@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import {ListItem, Skeleton} from '../common';
+import styled from "styled-components";
+import {ListItem, Skeleton} from "../common";
 
 const ListItemExtend = styled(ListItem)`
   & + li {
@@ -21,10 +21,10 @@ export function FeedLoader() {
   return (
     <ListItemExtend>
       <Grid>
-        <Skeleton style={{width: '50px', height: '50px', borderRadius: '25px'}} />
+        <Skeleton style={{width: "50px", height: "50px", borderRadius: "25px"}} />
         <Contents>
-          <Skeleton style={{width: '50%', height: '14px'}} />
-          <Skeleton style={{display: 'block', width: '30%', height: '14px', marginTop: '5px'}} />
+          <Skeleton style={{width: "50%", height: "14px"}} />
+          <Skeleton style={{display: "block", width: "30%", height: "14px", marginTop: "5px"}} />
         </Contents>
       </Grid>
     </ListItemExtend>

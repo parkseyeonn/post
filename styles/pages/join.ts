@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Input } from '../../components/common';
+import { Button } from '../../components/common';
 
 const Wrap = styled.div`
   z-index: 50;
@@ -17,12 +17,12 @@ const InputWrap = styled.div`
   width: 300px;
 `;
 
-const LoginButton = styled(Button)`
+const SubmitButton = styled(Button)`
   margin-top: 24px;
 `;
 
 export {
     Wrap,
     InputWrap,
-    LoginButton,
+    SubmitButton,
 }

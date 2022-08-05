@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
+import { Portal, confirmModalRootId } from "./Portal";
+import ModalStyle from "./style";
 import { confirmState } from "../../recoil/confirm";
 import useConfirm from "../../hooks/useConfirm";
-import {Portal, confirmModalRootId} from "./Portal";
-import ModalStyle from "./style";
 
 export interface ModalProps {
   message: string;
@@ -20,24 +20,28 @@ const Confirm = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   useEffect(() => {
-    console.log(state);
+    console.log('confirm', state);
     if (state) {
       setIsOpen(true);
       setIsAnimated(true);
-    } else {
-
     }
   }, [state]);
 
   const handleSuccess = () => {
-    setIsAnimated(false);
-    hide();
-    if(state?.onSuccess) state.onSuccess();
+    setIsOpen(false);
+    setTimeout(() => {
+      setIsAnimated(false);
+      if(state?.onSuccess) state.onSuccess();
+      hide();
+    }, 300);
   }
   const handleCancel = () => {
-    setIsAnimated(false);
-    hide();
-    if(state?.onCancel) state.onCancel();
+    setIsOpen(false);
+    setTimeout(() => {
+      setIsAnimated(false);
+      if(state?.onCancel) state.onCancel();
+      hide();
+    }, 300);
   }
 
   if (!state) return null;
@@ -47,14 +51,14 @@ const Confirm = () => {
       <ModalStyle>
         <ModalStyle.Background role="confirm-modal" isAnimated={isAnimated} isOpen={isOpen}>
           <ModalStyle.Container isOpen={isOpen} size={300}>
-            <h3>{state.message}</h3>
+            <h3>{state?.message}</h3>
             <ModalStyle.ButtonWrap>
-              {state.cancelText ?
+              {state?.cancelText ?
                 <ModalStyle.SuccessButton type="button" onClick={handleCancel}>
                   {state.cancelText}
                 </ModalStyle.SuccessButton>
                 : null}
-              {state.successText ?
+              {state?.successText ?
                 <ModalStyle.SuccessButton type="button" onClick={handleSuccess}>
                   {state.successText}
                 </ModalStyle.SuccessButton>

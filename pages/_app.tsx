@@ -23,7 +23,7 @@ html {
 body {
   height: 100%;
   background: #fafafa;
-  & > div {
+  & > div#__next {
     height: 100%;
   }
 }

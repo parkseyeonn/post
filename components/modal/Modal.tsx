@@ -21,30 +21,27 @@ export const Modal = ({
 }: ModalProps) => {
   const modalRef = useRef(null);
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
+
   useClickOutside({
     ref: modalRef,
     callback: handleClose
   });
 
-//todo modal useEffect
-//   useEffect(() => {
-//     if (isOpen) {
-//       let timeout: NodeJS.Timeout;
-//       if (isOpen) {
-//         setIsAnimated(true);
-//       } else {
-//         timeout = setTimeout(() => {
-//           console.log(1133333)
-//           setIsAnimated(false);
-//         }, 300);
-//       }
-//       return () => {
-//         if (timeout !== undefined) {
-//           clearTimeout(timeout);
-//         }
-//       }
-//     }
-//   }, [isOpen]);
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (isOpen) {
+      setIsAnimated(true);
+    } else if (isAnimated) {
+      timeout = setTimeout(() => {
+        setIsAnimated(false);
+      }, 300);
+    }
+    return () => {
+      if (timeout !== undefined) {
+        clearTimeout(timeout);
+      }
+    }
+  }, [isOpen]);
 
   if (!(isOpen || isAnimated)) return null;
 

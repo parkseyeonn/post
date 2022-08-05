@@ -63,7 +63,7 @@ export default function Header() {
         <Link href={"/group"} passHref>
           <StyledLink isCurrentPage={menu === "group"}><FontAwesomeIcon icon={faBook} /></StyledLink>
         </Link>
-        <Link href={user ? "/mypage": "/login"} passHref>
+        <Link href={user ? "/mypage": "/mypage"} passHref>
           <StyledLink isCurrentPage={menu === (user ? "mypage" : "login")}><FontAwesomeIcon icon={faUser} /></StyledLink>
         </Link>
       </StyledNavBar>

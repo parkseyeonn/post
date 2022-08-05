@@ -59,7 +59,6 @@ const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
   overflow-y: auto;
   overflow-x: hidden;
   opacity: 0;
-  visibility: hidden;
   transition: .1s;
   animation-duration: .2s;
   animation-fill-mode: forwards;
@@ -67,7 +66,7 @@ const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
   animation-name: ${fadeIn};
   ${
       props => props.isOpen ? css`
-        visibility: visible;
+        animation-delay: .1s;
       ` : css`
         animation-name: ${fadeOut};
       `

@@ -2,6 +2,8 @@ import { ReactNode, useState, useEffect, useRef } from "react";
 import { Portal, defaultModalRootId } from "./Portal";
 import ModalStyle from "./style";
 import useClickOutside from "../../hooks/useClickOutside";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 export interface ModalProps {
   isOpen: boolean;
@@ -52,7 +54,9 @@ export const Modal = ({
         <ModalStyle.Container ref={modalRef} isOpen={isOpen} size={size ? size : null}>
           <ModalStyle.Header>
             {title ? <ModalStyle.Title>{title}</ModalStyle.Title> : null}
-            <ModalStyle.CloseButton aria-label="close" onClick={handleClose}>x</ModalStyle.CloseButton>
+            <ModalStyle.CloseButton aria-label="close" onClick={handleClose}>
+              <FontAwesomeIcon icon={faClose} />
+            </ModalStyle.CloseButton>
           </ModalStyle.Header>
           <ModalStyle.Body>
           {children}

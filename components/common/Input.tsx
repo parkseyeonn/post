@@ -34,12 +34,10 @@ const Error = styled.div`
   font-size: 12px;
 `;
 
-const Input = ({prepend, append, ...props}: Props) => {
+const Input = ({props}: Props) => {
     return (
     <>
-      {prepend}
       <StyledInput {...props} />
-      {append}
     </>
     )
 };

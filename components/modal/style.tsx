@@ -55,6 +55,7 @@ const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
   background-color: rgba(200, 200, 200, 0.9);
   overflow-y: auto;
   overflow-x: hidden;
@@ -79,7 +80,7 @@ const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
 const Container = styled.div<{isOpen: boolean , size: number | null}>`
   position: relative;
   width: ${props => props.size ? `${props.size}px` : '1000px'};
-  padding: 30px;
+  padding: 16px 30px 30px;
   background-color: white;
   border-radius: 10px;
   box-shadow: ${props => props.theme.boxShadow};
@@ -109,7 +110,7 @@ const CloseButton = styled.button`
   margin-left: auto;
   padding: 5px;
   transition: .2s;
-  font-size: 30px;
+  font-size: 24px;
   border: 0;
   &:hover {
     opacity: .8;

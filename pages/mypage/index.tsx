@@ -2,6 +2,14 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Seo from "../../components/Seo";
 import { ListItem } from "../../components/common";
+import {
+  Profile,
+  ProfileImage,
+  Name,
+  LinkList,
+  LinkWrap,
+  LinkItem
+} from "../../styles/pages/mypage";
 
 const user = {
   name: '이름이',
@@ -25,15 +33,20 @@ const MyPage: NextPage = () => {
     <Seo />
     <div>
 {/* todo user profile*/}
-      <ul>
+      <Profile>
+        <ProfileImage />
+        <Name>닉네임</Name>
+        <Name>2002.02.02</Name>
+      </Profile>
+      <LinkList>
       {menu?.map((item, index) => (
-        <ListItem key={index}>
-          <Link href={item.link}>
-            <a>{item.name}</a>
+        <LinkWrap key={index}>
+          <Link href={item.link} passHref>
+            <LinkItem>{item.name}</LinkItem>
           </Link>
-        </ListItem>
+        </LinkWrap>
       ))}
-      </ul>
+      </LinkList>
     </div>
     </>
   )

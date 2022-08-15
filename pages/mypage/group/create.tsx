@@ -4,6 +4,9 @@ import Seo from "../../../components/Seo";
 import { Modal } from "../../../components/modal/Modal";
 import { Button, CategorySelector, Input, Title } from "../../../components/common";
 import useForm from "../../../hooks/useForm";
+import { FormItem, ButtonWrap, SearchInputWrap, SearchButton } from "../../../styles/pages/mypage/create";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const team_list_fake = [
   {id: 1, name: "팀원1", image: null, nickname: "영화바보", interests: ["영어", "영화"]},
@@ -30,23 +33,48 @@ const CreateGroup: NextPage = () => {
   });
 
   //modal
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenCategory, setIsOpenCategory] = useState(false);
+  const [isOpenTeam, setIsOpenTeam] = useState(false);
   const [searchName, setSearchName] = useState("");
+  const [searchCategory, setSearchCategory] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState([]);
   return (
     <>
     <Seo />
     <Title type="t2" style={{marginBottom: 20}}>그룹 만들기</Title>
     <form>
-      <Input
-        id="name"
-        prepend={<label htmlFor="name">이름</label>}
-      />
-{/*  카테고리 생성하기?       */}
-      <CategorySelector />
-      <Button type="button" size="normal" onClick={() => setIsOpen(prev => !prev)}>팀원 찾기</Button>
-{/*         카테고리, 초기 팀원*/}
-      <Button type="button">생성하기</Button>
-      <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)} title={"팀원 찾기"} size={1000}>
+      <FormItem>
+        <label htmlFor="name">이름</label>
+        <Input
+          id="name"
+        />
+      </FormItem>
+      <FormItem>
+        <div>카테고리</div>
+        <Button type="button" size="normal" onClick={() => setIsOpenCategory(prev => !prev)}>카테고리 찾기</Button>
+        <CategorySelector selectedCategories={selectedCategories}/>
+      </FormItem>
+      <FormItem>
+        <div>팀원</div>
+        <Button type="button" size="normal" onClick={() => setIsOpenTeam(prev => !prev)}>팀원 찾기</Button>
+      </FormItem>
+      <ButtonWrap>
+         <Button type="button" size="big">생성하기</Button>
+      </ButtonWrap>
+      <Modal isOpen={isOpenCategory} handleClose={() => setIsOpenCategory(false)} title={"팀원 찾기"} size={1000}>
+        <SearchInputWrap>
+            <Input type="text"
+                   style={{paddingRight: 40}}
+                   id="searchCategory"
+                   value={searchCategory}
+                   onChange={e => setSearchCategory(e.target.value)}
+            />
+            <SearchButton>
+                <FontAwesomeIcon icon={faSearch} />
+            </SearchButton>
+        </SearchInputWrap>
+      </Modal>
+      <Modal isOpen={isOpenTeam} handleClose={() => setIsOpenTeam(false)} title={"팀원 찾기"} size={1000}>
         <Input type="text" id="searchName" value={searchName} onChange={e => setSearchName(e.target.value)}/>
         {
           team_list_fake.map((user) => (

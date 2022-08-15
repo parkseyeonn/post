@@ -27,12 +27,12 @@ const Category = styled.li<{isActive: boolean}>`
   }
 `;
 
-export function CategorySelector() {
+export function CategorySelector({selectedCategories}) {
   return (
     <CategoryList>
     {
-      categories.map((category, index) => (
-        <Category>{category}</Category>
+      selectedCategories.map((category, index) => (
+        <Category key={index}>{category}</Category>
       ))
     }
     </CategoryList>

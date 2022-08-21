@@ -14,7 +14,7 @@ const team_list_fake = [
 
 const CreateGroup: NextPage = () => {
   const {values, errors, getFieldProps, handleSubmit} = useForm({
-    initialValues: {name: "", category: "", members: ""},
+    initialValues: {name: "", category: "", members: "", introduction: ""},
     validate: (values) => {
       const errors = {
         id: "",
@@ -29,7 +29,7 @@ const CreateGroup: NextPage = () => {
       }
       return errors;
     },
-    onValidate: values => {},
+    onSubmit: values => {},
   });
 
   //modal
@@ -61,7 +61,7 @@ const CreateGroup: NextPage = () => {
       <ButtonWrap>
          <Button type="button" size="big">생성하기</Button>
       </ButtonWrap>
-      <Modal isOpen={isOpenCategory} handleClose={() => setIsOpenCategory(false)} title={"팀원 찾기"} size={1000}>
+      <Modal isOpen={isOpenCategory} handleClose={() => setIsOpenCategory(false)} title={"카테고리 찾기"}>
         <SearchInputWrap>
             <Input type="text"
                    style={{paddingRight: 40}}
@@ -74,7 +74,7 @@ const CreateGroup: NextPage = () => {
             </SearchButton>
         </SearchInputWrap>
       </Modal>
-      <Modal isOpen={isOpenTeam} handleClose={() => setIsOpenTeam(false)} title={"팀원 찾기"} size={1000}>
+      <Modal isOpen={isOpenTeam} handleClose={() => setIsOpenTeam(false)} title={"팀원 찾기"}>
         <Input type="text" id="searchName" value={searchName} onChange={e => setSearchName(e.target.value)}/>
         {
           team_list_fake.map((user) => (

@@ -9,6 +9,7 @@ import { feedData } from "../data";
 
 const Home: NextPage = () => {
   const { show } = useConfirm();
+
   const [isOpen, setIsOpen] = useState(false);
   const [randomCategory, setRandomCategory] = useState("공부");
   const [groups, setGroups] = useState([{
@@ -38,10 +39,11 @@ const Home: NextPage = () => {
 {/*           </Group> */}
 {/*         ))} */}
 {/*       </ul> */}
-      <Title type="t1">다른 모임들이 어떻게 활동하는지 구경해보세요!</Title>
+      {/* <Title type="t1"></Title> */}
       <FeedList>
         {feed.map((item) => (
           <Feed key={item.id}
+           id={item.id}
            category={item.group.category}
            title={item.title}
            contents={item.contents}
@@ -54,7 +56,7 @@ const Home: NextPage = () => {
       <Button size={"normal"} onClick={() => onConfirmClick()}>
         test confirm
       </Button>
-      <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)} title={"title"} size={1000}>
+      <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)} title={"title"}>
         modal body test
       </Modal>
     </div>

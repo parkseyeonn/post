@@ -5,7 +5,9 @@ import { ListItem } from "../../components/common";
 import {
   Profile,
   ProfileImage,
+  ProfileRow,
   Name,
+  Nickname,
   LinkList,
   LinkWrap,
   LinkItem
@@ -16,7 +18,7 @@ const user = {
   nickname: '이므미',
   group: {
     name: '스터디그룹',
-    tag: ['국어', '영어', '수학'],
+    categories: ['국어', '영어', '수학'],
     introduction: '같이 공부하자!',
   },
 };
@@ -24,7 +26,6 @@ const user = {
 const menu = [
     {name: "그룹 생성", link: "/mypage/group/create"},
     {name: "그룹 관리", link: "/mypage/group/management"},
-    {name: "그룹원 관리", link: "/mypage/group/member"},
 ]
 
 const MyPage: NextPage = () => {
@@ -35,8 +36,15 @@ const MyPage: NextPage = () => {
 {/* todo user profile*/}
       <Profile>
         <ProfileImage />
-        <Name>닉네임</Name>
-        <Name>2002.02.02</Name>
+        <div>
+          <ProfileRow>
+            <Name>이름</Name>
+            <Nickname>@이름</Nickname>
+          </ProfileRow>
+          <ProfileRow>
+            <Name>2002.02.02</Name>
+          </ProfileRow>
+        </div>
       </Profile>
       <LinkList>
       {menu?.map((item, index) => (

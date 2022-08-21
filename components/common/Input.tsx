@@ -1,10 +1,7 @@
-import {InputHTMLAttributes} from "react";
-import styled, {css} from "styled-components";
+import {InputHTMLAttributes, ReactNode} from "react";
+import styled from "styled-components";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  prepend?: ReactNode;
-  append?: ReactNode;
-  type?: "small";
 }
 
 const StyledInput = styled.input`
@@ -34,7 +31,7 @@ const Error = styled.div`
   font-size: 12px;
 `;
 
-const Input = ({props}: Props) => {
+const Input = ({...props}: Props) => {
     return (
     <>
       <StyledInput {...props} />

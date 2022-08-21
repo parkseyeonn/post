@@ -16,8 +16,19 @@ const ProfileImage = styled.div`
   background-color: ${props => props.theme.themeColor3};
 `;
 
+const ProfileRow = styled.div`
+  margin-bottom: 5px;
+`;
+
 const Name = styled.span`
   margin-right: 5px;
+`;
+
+const Nickname = styled.span`
+  padding: 5px;
+  border-radius: 5px;
+  background-color: ${props => props.theme.themeColor1};
+  color: white;
 `;
 
 const LinkList = styled.ul`
@@ -45,7 +56,9 @@ const LinkItem = styled.a`
 export {
   Profile,
   ProfileImage,
+  ProfileRow,
   Name,
+  Nickname,
   LinkList,
   LinkWrap,
   LinkItem,

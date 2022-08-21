@@ -1,7 +1,7 @@
-import {DivHTMLAttributes} from "react";
+import {HTMLAttributes} from "react";
 import styled from "styled-components";
 
-interface Props extends DivHTMLAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 const StyledSkeleton = styled.div`

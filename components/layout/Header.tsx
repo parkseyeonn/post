@@ -9,12 +9,12 @@ const HeaderTag = styled.header`
   z-index: ${props => props.theme.headerZIndex};
   display: flex;
   align-items: center;
-  height: 140px;
+  height: 60px;
 `;
 
 const LogoH1 = styled.a`
   font-family: "Cormorant SC", serif;
-  font-size: 40px;
+  font-size: 28px;
   &:hover {
    text-decoration: none;
   }
@@ -28,16 +28,15 @@ const HeaderLink = styled.a`
 const StyledNavBar = styled.nav`
   flex: 1;
   display: flex;
-  margin-left: 100px;
-  padding: 14px 10px;
+  padding: 14px 5px;
 `;
 
 const StyledLink = styled.a<{isCurrentPage: boolean}>`
   flex: 1;
   color: ${props => props.isCurrentPage ? props.theme.themeColor1 : "black"};
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500;
-  text-align: center;
+  text-align: right;
   transition: opacity .2s;
   &:hover {
     opacity: .6;

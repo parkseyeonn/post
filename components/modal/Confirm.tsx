@@ -50,7 +50,7 @@ const Confirm = () => {
     <Portal rootId={confirmModalRootId}>
       <ModalStyle>
         <ModalStyle.Background role="confirm-modal" isAnimated={isAnimated} isOpen={isOpen}>
-          <ModalStyle.Container isOpen={isOpen} size={300}>
+          <ModalStyle.Container isOpen={isOpen} size={200}>
             <h3>{state?.message}</h3>
             <ModalStyle.ButtonWrap>
               {state?.cancelText ?

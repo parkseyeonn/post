@@ -1,7 +1,7 @@
 import {LiHTMLAttributes} from "react";
 import styled from "styled-components";
 
-interface Props extends LiHTMLAttributes<HTMLLiElement> {
+interface Props extends LiHTMLAttributes<HTMLLIElement> {
 }
 
 const StyledLi = styled.li`

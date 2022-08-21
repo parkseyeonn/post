@@ -79,8 +79,8 @@ const Background = styled.div<{isAnimated: boolean, isOpen: boolean}>`
 
 const Container = styled.div<{isOpen: boolean , size: number | null}>`
   position: relative;
-  width: ${props => props.size ? `${props.size}px` : '1000px'};
-  padding: 16px 30px 30px;
+  width: ${props => props.size ? `${props.size}px` : '500px'};
+  padding: 16px 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: ${props => props.theme.boxShadow};

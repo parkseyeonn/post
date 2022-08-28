@@ -1,4 +1,4 @@
-import {useEffect, RefObject, MouseEvent, forwardRef} from "react";
+import {useEffect, RefObject} from "react";
 
 interface Props {
   ref: RefObject<HTMLElement>;
